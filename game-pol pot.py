@@ -111,3 +111,10 @@ def main():
     game_window.mainloop()
     root.deiconify()
 
+# _________________Play sound_______________________
+def play_sound():
+    sound_file_path = 'sound/dark-engine-logo-141942.wav'  # Specify the path to the sound file
+    winsound.PlaySound(sound_file_path, winsound.SND_FILENAME + winsound.SND_LOOP)
+
+sound_thread = threading.Thread(target=play_sound)
+sound_thread.start()
