@@ -118,3 +118,47 @@ def play_sound():
 
 sound_thread = threading.Thread(target=play_sound)
 sound_thread.start()
+
+# _________________Button functions____________
+def show_help():
+    root.withdraw()
+    help_window = Toplevel(root)
+    help_window.title("Help")
+    help_window.geometry("1920x1080")
+
+    help_background_img_path = "img/help-background.jpg"  # Specify the path to the help window background image
+    background_image = Image.open(help_background_img_path)
+    width = 1400
+    height = 750
+    background_image = background_image.resize((width, height))
+    background_image = ImageTk.PhotoImage(background_image)
+
+    canvas = Canvas(help_window, width=width, height=height)
+    canvas.pack()
+    canvas.create_image(0, 0, anchor="nw", image=background_image)
+
+    def close_help():
+        help_window.destroy()
+        root.deiconify()
+
+    # Button Back in player screen
+    back_button= tk.Button(help_window, text='Back', width=8, font=('BLOODY TYPE PERSONAL USE', 30), command=close_help, bg='#660000',fg="white",border=10)
+    back_button.place(x=30, y=30)
+    back_button.lift()
+    help_window.focus_set()
+    help_window.mainloop()
+
+def exit_program():
+    sys.exit()
+
+# __________________Buttons___________________
+help_button = tk.Button(root, text='Help', width=15, font=('BLOODY TYPE PERSONAL USE', 30), command=show_help, bg='#660000', fg="white", border=10)
+help_button.place(x=320, y=420)
+
+exit_button = tk.Button(root, text='Exit', width=15, font=('BLOODY TYPE PERSONAL USE', 30), command=exit_program, bg='#660000', fg="white", border=10)
+exit_button.place(x=320, y=540)
+
+start_button = tk.Button(root, text='Start', width=15, font=('BLOODY TYPE PERSONAL USE', 30), command=start_loading, bg='#660000', fg="white", border=10)
+start_button.place(x=320, y=300)
+
+root.mainloop()
