@@ -69,7 +69,7 @@ def main(loading_screen):
     game_window.title('Play Game')
     game_background_img_path = "img/background-game.jpg"  # Specify the path to the game background image
     background_image = Image.open(game_background_img_path)
-    resized_image = background_image.resize((1400, 880))
+    resized_image = background_image.resize((1400, 700))
     background_image_tk = ImageTk.PhotoImage(resized_image)
     canvas = tk.Canvas(game_window, width=1920, height=1080)
     canvas.pack()
@@ -86,29 +86,39 @@ def main(loading_screen):
 #_________________img________________
 
     # Load the wall image and resize it
-    wall_image = Image.open("img/WALL.jpg")
-    wall_image = wall_image.resize((300, 100))
+    wall_image = Image.open("img/wall.png")
+    wall_image = wall_image.resize((400, 200))
     # Load the tree image and resize it
-    # tree_image = Image.open("img/tree2.png")
-    # tree_image = tree_image.resize((600, 500))
+    tree_image = Image.open("img/tree.png")
+    tree_image = tree_image.resize((600, 500))
     rock_image = Image.open("img/rock.png")
     rock_image = rock_image.resize((600, 500))
+    cloud_image = Image.open("img/Cloud.png")
+    cloud_image = cloud_image.resize((800, 500))
+    arrow_image = Image.open("img/arrow.png")
+    arrow_image = arrow_image.resize((99, 90))
 
     # Create PhotoImage objects from the resized images
     wall_image_1 = ImageTk.PhotoImage(wall_image)
     wall_image_2 = ImageTk.PhotoImage(wall_image)
     wall_image_3 = ImageTk.PhotoImage(wall_image)
     wall_image_4 = ImageTk.PhotoImage(wall_image)
+    tree_image = ImageTk.PhotoImage(tree_image)
+    cloud_image = ImageTk.PhotoImage(cloud_image)
+    arrow_image = ImageTk.PhotoImage(arrow_image)
 
     # rock_image = ImageTk.PhotoImage(tree_image)
     rock_image = ImageTk.PhotoImage(rock_image)
 
     # Create wall images on the canvas with spacing between them
+    wall_1 = canvas.create_image(1410, 600, image=tree_image)
     wall_2 = canvas.create_image(700, 150, image=wall_image_1)
     wall_3 = canvas.create_image(1000, 400, image=wall_image_2)
     wall_5 = canvas.create_image(400, 350, image=wall_image_3)
     wall_6 = canvas.create_image(1300, 580, image=wall_image_4)
     wall_7 = canvas.create_image(0, 700, image=rock_image)
+    wall_8 = canvas.create_image(1000, 100, image=cloud_image)
+    wall_9 = canvas.create_image(50, 558, image=arrow_image)
 
     img_play_game_path = "img/play-game-image.jpg"  # Specify the path to the image for the game
     img_play_game = ImageTk.PhotoImage(file=img_play_game_path)
