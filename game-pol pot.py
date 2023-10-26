@@ -44,7 +44,6 @@ def start_loading():
     progressbar.place(x=500, y=550)
     loading(progressbar, loading_screen)
     imageTk()
-
 # ______________________Loading Process Code___________________________
 def loading(progressbar, loading_screen):
     if progressbar['value'] == 0:
@@ -55,17 +54,19 @@ def loading(progressbar, loading_screen):
         start_button['state'] = 'normal'
         progressbar['value'] = 0
         winsound.PlaySound(None, winsound.SND_PURGE)
-        main()
-        loading_screen.destroy()
+        main(loading_screen)
         return
     progressbar['value'] += 1
     root.after(20, loading, progressbar, loading_screen)
-def main():
+
+
+
+def main(loading_screen):
     root.withdraw()
+    loading_screen.withdraw()
     game_window = tk.Toplevel()
     game_window.geometry("1920x1080")
     game_window.title('Play Game')
-
     game_background_img_path = "img/background-game.jpg"  # Specify the path to the game background image
     background_image = Image.open(game_background_img_path)
     resized_image = background_image.resize((1400, 880))
