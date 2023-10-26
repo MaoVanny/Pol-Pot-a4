@@ -98,7 +98,9 @@ def main(loading_screen):
     game_window = tk.Toplevel()
     game_window.geometry(root.geometry(str(WIN_WIDTH) + "x" + str(WIN_HEIGHT)))
     game_window.title('Play Game')
-    
+    frame = tk.Frame(game_window,height=1920,width=1080)
+    frame.pack()
+    canvas = tk.Canvas(frame, width=1920, height=1080)
     canvas.pack()
     background  = tk.PhotoImage(file="img/loadingscreen.png")
     background_img1 = canvas.create_image(0, 0, image=background)
@@ -462,12 +464,12 @@ def main(loading_screen):
         score += 1
         score_label.config(text="Score: " + str(score))
 
-    score_label = tk.Label(game_window, text="Score: 0", font=("Arial", 16))
+    score_label = tk.Label(game_window, text="Score: 0", font=("Arial", 24))
     score_label.place(x=1200,y=20)
 
 
     # Time of player 
-    timer_label = tk.Label(game_window, text="", font=("Arial", 24))
+    timer_label = tk.Label(game_window, text="", font=("Arial", 24))   
     timer_label.place(x=500,y=20)
 
     # Define the countdown function
@@ -498,6 +500,10 @@ def main(loading_screen):
     back_to_main_button.place(x=10, y=20)
 
 #_________________img________________
+
+
+     # Create wall images on the canvas with spacing between them
+ 
 
     img_play_game_path = "img/play-game-image.jpg"  # Specify the path to the image for the game
     img_play_game = ImageTk.PhotoImage(file=img_play_game_path)
@@ -559,4 +565,4 @@ exit_button.place(x=320, y=540)
 start_button = tk.Button(root, text='Start', width=15, font=('BLOODY TYPE PERSONAL USE', 30), command=start_loading, bg='#660000', fg="white", border=10)
 start_button.place(x=320, y=300)
 
-root.mainloop()
+root.mainloop() 
