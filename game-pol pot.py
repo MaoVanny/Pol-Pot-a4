@@ -84,23 +84,30 @@ def main():
 
 #_________________img________________
 
+    # Load the wall image and resize it
+    wall_image = Image.open("img/WALL.jpg")
+    wall_image = wall_image.resize((300, 100))
+    # Load the tree image and resize it
+    # tree_image = Image.open("img/tree2.png")
+    # tree_image = tree_image.resize((600, 500))
+    rock_image = Image.open("img/rock.png")
+    rock_image = rock_image.resize((600, 500))
 
-    image1 = Image.open("img/WALL.jpg")
-    image1 = image1.resize((300, 100))  # Adjust the size as needed
-    image1_jpg = ImageTk.PhotoImage(image1)
-    image2 = Image.open("img/WALL.jpg")
-    image2 = image2.resize((300, 100))  # Adjust the size as needed
-    image2_jpg = ImageTk.PhotoImage(image2)
-    image3 = Image.open("img/WALL.jpg")
-    image3 = image3.resize((300, 100))  # Adjust the size as needed
-    image3_jpg = ImageTk.PhotoImage(image3)
+    # Create PhotoImage objects from the resized images
+    wall_image_1 = ImageTk.PhotoImage(wall_image)
+    wall_image_2 = ImageTk.PhotoImage(wall_image)
+    wall_image_3 = ImageTk.PhotoImage(wall_image)
+    wall_image_4 = ImageTk.PhotoImage(wall_image)
 
+    # rock_image = ImageTk.PhotoImage(tree_image)
+    rock_image = ImageTk.PhotoImage(rock_image)
 
-    wall= canvas.create_image(500, 500, image=image1_jpg)
-    wall= canvas.create_image(900, 200, image=image2_jpg)
-    wall= canvas.create_image(1200, 550, image=image3_jpg)
-
-
+    # Create wall images on the canvas with spacing between them
+    wall_2 = canvas.create_image(700, 150, image=wall_image_1)
+    wall_3 = canvas.create_image(1000, 400, image=wall_image_2)
+    wall_5 = canvas.create_image(400, 350, image=wall_image_3)
+    wall_6 = canvas.create_image(1300, 580, image=wall_image_4)
+    wall_7 = canvas.create_image(0, 700, image=rock_image)
 
     img_play_game_path = "img/play-game-image.jpg"  # Specify the path to the image for the game
     img_play_game = ImageTk.PhotoImage(file=img_play_game_path)
@@ -126,10 +133,11 @@ def show_help():
     help_window.title("Help")
     help_window.geometry("1920x1080")
 
-    help_background_img_path = "img/help-background.jpg"  # Specify the path to the help window background image
+    help_background_img_path = "img/help-background.png"  # Specify the path to the help window background image
     background_image = Image.open(help_background_img_path)
     width = 1400
-    height = 750
+    height = 720
+
     background_image = background_image.resize((width, height))
     background_image = ImageTk.PhotoImage(background_image)
 
