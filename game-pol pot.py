@@ -98,9 +98,7 @@ def main(loading_screen):
     game_window = tk.Toplevel()
     game_window.geometry(root.geometry(str(WIN_WIDTH) + "x" + str(WIN_HEIGHT)))
     game_window.title('Play Game')
-    frame = tk.Frame(game_window,height=1920,width=1080)
-    frame.pack()
-    canvas = tk.Canvas(frame, width=1920, height=1080)
+    
     canvas.pack()
     background  = tk.PhotoImage(file="img/loadingscreen.png")
     background_img1 = canvas.create_image(0, 0, image=background)
@@ -500,10 +498,6 @@ def main(loading_screen):
     back_to_main_button.place(x=10, y=20)
 
 #_________________img________________
-
-
-     # Create wall images on the canvas with spacing between them
- 
 
     img_play_game_path = "img/play-game-image.jpg"  # Specify the path to the image for the game
     img_play_game = ImageTk.PhotoImage(file=img_play_game_path)
