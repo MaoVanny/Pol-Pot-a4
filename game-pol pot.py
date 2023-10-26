@@ -215,12 +215,12 @@ def main(loading_screen):
         elif event.keysym == "Right" and "Right" in keyPressed:
             keyPressed.remove("Right")
         
-    # function for shooing of charcter
+    # function for shooing of charcter    
     def shoot(event):
         x1, y1 = canvas.coords(player)
         bullet = canvas.create_rectangle(x1 + 30, y1 - 5 , x1 + 40, y1 - 10, fill=bullet_color)
         player_bullets.append(bullet)
-
+        play_shooting_sound()
     # function for move character
     def move_player():
         global action
@@ -522,6 +522,9 @@ def play_sound():
 sound_thread = threading.Thread(target=play_sound)
 sound_thread.start()
 
+# Function to play the shooting sound
+def play_shooting_sound(): 
+    winsound.PlaySound("sound/9mm-pistol-shoot-short-reverb-7152.wav", winsound.SND_ASYNC)
 # _________________Button functions____________
 def show_help():
     root.withdraw()
