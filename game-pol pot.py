@@ -102,7 +102,7 @@ def main(loading_screen):
     frame.pack()
     canvas = tk.Canvas(frame, width=1920, height=1080)
     canvas.pack()
-    background  = tk.PhotoImage(file="img/loadingscreen.png")
+    background  = tk.PhotoImage(file="img/background-game.pn g")
     background_img1 = canvas.create_image(0, 0, image=background)
     background_img2 = canvas.create_image(WIN_WIDTH, 0, image=background)
    
