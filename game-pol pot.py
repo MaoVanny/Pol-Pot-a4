@@ -65,12 +65,12 @@ def start_loading():
     # Specify the path to the loading screen image
     loading_screen_img_path = "img/loadingscreen.png"  
     img1 = Image.open(loading_screen_img_path)
-    resized_image1 = img1.resize((1370, 850))
+    resized_image1 = img1.resize((1370, 700))
     imageTk = ImageTk.PhotoImage(resized_image1)
     canvas.create_image(0, 0, anchor="nw", image=imageTk)
 
     progressbar = ttk.Progressbar(loading_screen, orient="horizontal", length=300, mode="determinate")
-    progressbar.place(x=500, y=550)
+    progressbar.place(x=510, y=550)
     loading(progressbar, loading_screen)
     imageTk()
 # ______________________Loading Process Code___________________________
@@ -125,17 +125,31 @@ def main(loading_screen):
         enemies()
         
     # Create wall of game
+    imageTk_1_land = tk.PhotoImage(file="img/wall.png")
+    imageTk_1_box = tk.PhotoImage(file="img/box.png")
     def create_obstacles():
         walls = [
-            canvas.create_rectangle(230, 240, 400, 280, fill="white", tags="wall"),
-            canvas.create_rectangle(480, 100, 650, 130, fill="white", tags="wall"),
-            canvas.create_rectangle(780, 200, 950, 230, fill="white", tags="wall"),
-            canvas.create_rectangle(450, 300, 650, 330, fill="Red", tags="wall"),
-            canvas.create_rectangle(850, 360, 900, 390, fill="Red", tags="wall"),
-            canvas.create_rectangle(480, 400, 950, 430, fill="white", tags="wall"),
-            canvas.create_rectangle(1050, 380, 1150, 410, fill="white", tags="wall"),
-            canvas.create_rectangle(240, 480, 330, 510, fill="white", tags="wall")
-            ]
+            canvas.create_image(900, 300, image=imageTk_1_land,tags="wall"),
+            canvas.create_image(1300, 200, image=imageTk_1_land,tags="wall"),
+            canvas.create_image(1800, 400, image=imageTk_1_land,tags="wall"),
+            canvas.create_image(2300, 400, image=imageTk_1_land,tags="wall"),
+            canvas.create_image(2800, 100, image=imageTk_1_land,tags="wall"),
+            canvas.create_image(3300, 200, image=imageTk_1_land,tags="wall"),
+            canvas.create_image(3800, 400, image=imageTk_1_land,tags="wall"),
+
+            #box
+            canvas.create_image(500, 485, image=imageTk_1_box,tags="wall"),
+            canvas.create_image(530, 485, image=imageTk_1_box,tags="wall"),
+            canvas.create_image(560, 485, image=imageTk_1_box,tags="wall"),
+            canvas.create_image(590, 485, image=imageTk_1_box,tags="wall"),
+            canvas.create_image(620, 485, image=imageTk_1_box,tags="wall"),
+            canvas.create_image(650, 485, image=imageTk_1_box,tags="wall"),
+            canvas.create_image(650, 485, image=imageTk_1_box,tags="wall"),
+            canvas.create_image(530, 455, image=imageTk_1_box,tags="wall"),
+            canvas.create_image(560, 455, image=imageTk_1_box,tags="wall"),
+            canvas.create_image(590, 455, image=imageTk_1_box,tags="wall"),
+            canvas.create_image(620, 455, image=imageTk_1_box,tags="wall"),
+                ]
         for obstacle in walls:
             obstacles.append(obstacle)
 
@@ -143,12 +157,12 @@ def main(loading_screen):
     #create all enemies
     imageTk_1 = tk.PhotoImage(file="img/Reverse characters/enemy/Run/0.png")
     enemys = [
-            canvas.create_image(500,200, image= imageTk_1, anchor="center",tags ="enemy"),
-            canvas.create_image(500,240, image= imageTk_1, anchor="center",tags ="enemy"),
-            canvas.create_image(500,280, image= imageTk_1, anchor="center",tags ="enemy"),
-            canvas.create_image(500,340, image= imageTk_1, anchor="center",tags ="enemy"),
-            canvas.create_image(500,380, image= imageTk_1, anchor="center",tags ="enemy"),
-            canvas.create_image(500,420, image= imageTk_1, anchor="center",tags ="enemy")
+            canvas.create_image(900,220, image= imageTk_1, anchor="center",tags ="enemy"),
+            canvas.create_image(1300,120, image= imageTk_1, anchor="center",tags ="enemy"),
+            canvas.create_image(1800,320, image= imageTk_1, anchor="center",tags ="enemy"),
+            canvas.create_image(2300,320, image= imageTk_1, anchor="center",tags ="enemy"),
+            canvas.create_image(2800,20, image= imageTk_1, anchor="center",tags ="enemy"),
+            canvas.create_image(3300,120, image= imageTk_1, anchor="center",tags ="enemy")
         ]
     for enemy in enemys:
             pol_pots.append(enemy)
@@ -557,12 +571,12 @@ def exit_program():
 
 # __________________Buttons___________________
 help_button = tk.Button(root, text='Help', width=15, font=('BLOODY TYPE PERSONAL USE', 30), command=show_help, bg='#660000', fg="white", border=10)
-help_button.place(x=320, y=420)
+help_button.place(x=250, y=420)
 
 exit_button = tk.Button(root, text='Exit', width=15, font=('BLOODY TYPE PERSONAL USE', 30), command=exit_program, bg='#660000', fg="white", border=10)
-exit_button.place(x=320, y=540)
+exit_button.place(x=250, y=540)
 
 start_button = tk.Button(root, text='Start', width=15, font=('BLOODY TYPE PERSONAL USE', 30), command=start_loading, bg='#660000', fg="white", border=10)
-start_button.place(x=320, y=300)
+start_button.place(x=250, y=300)
 
 root.mainloop() 
